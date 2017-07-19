@@ -10,7 +10,6 @@
 				padding: 0px;
 				border: 0px;
 			}
-			
 			body,
 			html {
 				width: 100%;
@@ -96,36 +95,43 @@
 				height: 4%;
 				background: red;position: relative;
 			}
+			
+			
+			
 			.ling1 {
-				width: 940px;
-				height: 390px;
-				background: #e71e25;left: 20%;position: absolute;top:30%;display: none;
+				width:60%;
+				height: 50%;
+				background: #e71e25;position: absolute;top:25%;left: 20%;display: none;
 			}
-			.div-he1{position: absolute;width: 905px;height: 390px;float: left;}
+			.div-he1{width: 900px;height: 384px;float: left;position: absolute;}
 			.fangxiao1{float: right;margin-top: 1%;}
 			.fangxiao1:hover{cursor: pointer;}
+			
+			
+			
+			
 			.ling2 {
-				width: 940px;
-				height: 390px;
-				background: #e71e25;left: 20%;position: absolute;top:30%;display: none;
+				width:60%;
+				height: 50%;
+				background: #e71e25;left: 20%;position: absolute;top:25%;display: none;
 			}
-			.div-he2{position: absolute;width: 905px;height: 390px;float: left;}
+			.div-he2{width: 900px;height: 384px;float: left;}
 			.fangxiao2{float: right;margin-top: 1%;}
 			.fangxiao2:hover{cursor: pointer;}
 			.ling3 {
-				width: 940px;
-				height: 390px;
-				background: #e71e25;left: 20%;position: absolute;top:30%;display: none;
+				width:60%;
+				height: 50%;
+				background: #e71e25;left: 20%;position: absolute;top:25%;display: none;
 			}
-			.div-he3{position: absolute;width: 905px;height: 390px;float: left;}
+			.div-he3{;width: 900px;height:384px;float: left;}
 			.fangxiao3{float: right;margin-top: 1%;}
 			.fangxiao3:hover{cursor: pointer;}
 			.ling4 {
-				width: 940px;
-				height: 390px;
-				background: #e71e25;left: 20%;position: absolute;top:30%;display: none;
+				width:60%;
+				height: 50%;
+				background: #e71e25;left: 20%;position: absolute;top:25%;display: none;
 			}
-			.div-he4{position: absolute;width: 905px;height: 390px;float: left;}
+			.div-he4{width: 900px;height:384px;float: left;}
 			.fangxiao4{float: right;margin-top: 1%;}
 			.fangxiao4:hover{cursor: pointer;}
 			
@@ -185,112 +191,134 @@
 	<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 		var mapChart = echarts.init(document.getElementById('map-wrap'));
-		var myData = [{
-				name: 'China',
-				value: [116.23, 39.55]
-			},
-			{
-				name: 'Japan',
-				value: [130.21, 33.39]
-			},
-			{
-				name: 'Thailand',
-				value: [100.29, 15.5]
-			},
-			{
-				name: 'India',
-				value: [78, 27.09]
-			},
-			{
-				name: 'Malaysia',
-				value: [101.42, 5.08]
-			},
-			{
-				name: 'Russia',
-				value: [97.37, 65.45]
-			},
-			{
-				name: 'United States of America',
-				value: [-97.02, 38.52]
-			},
-			{
-				name: 'Mexico',
-				value: [-99.56, 20.52]
-			},
-			{
-				name: 'Brazil',
-				value: [-47.57, -15.45]
-			},
-			{
-				name: 'Spain',
-				value: [-2.06, 41.18]
-			},
-			{
-				name: 'France',
-				value: [3.2, 48.51]
-			},
-			{
-				name: 'Germany',
-				value: [10.2, 52.31]
-			},
-			{
-				name: 'United Kingdom',
-				value: [0, 55.04]
-			},
-			{
-				name: 'Italy',
-				value: [11.15, 45.28]
-			},
-			{
-				name: 'Australia',
-				value: [140.17, -25.55]
-			},
-		]
-		var option = {
-			title: {
-				text: '2017年6月28日网络热销产品走势图',
-				left: 'center',
-				top: '10%',
-				textStyle: {
-					color: '#fff',
-					fontSize: '25',
-					fontFamily: '宋体'
-				}
-			},
-			tooltip: {
-				trigger: 'item',
-				formatter: function(params) {
-					var value = (params.value + '').split('.');
-					value = value[0].replace(/(\d{1,3})(?=(?:\d{3})+(?!\d))/g, '$1,') +
-						'.' + value[1];
-					return params.seriesName + '<br/>' + params.name + ' : ' + value;
-				}
-			},
-			geo: {
-				map: 'world',
-				top: "25%",
-				itemStyle: {
-					normal: {
-						areaColor: '#b2cedd',
-						borderColor: '#111',
-					},
-					emphasis: {
-						areaColor: '#778a9b'
-					}
-				}
-			},
-			series: [{
-				name: '销量',
-				type: 'scatter',
-				coordinateSystem: 'geo',
-				data: myData,
-				itemStyle: {
-					normal: {
-						color: 'red',
-					}
-				}
-			}, ]
-		}
+var geoCoordMap = {
+	'中国': [116.3002283764,39.9181370976],
+    '日本': [130.21,33.39],
+    '澳大利亚': [140.17, -25.55],
+    '印度': [78,27.09],
+    '马来西亚': [101.42,5.08],
+    '俄罗斯': [37.37,55.45],
+    '美国': [-77.02, 38.52],
+    '墨西哥': [-99.56, 20.52],
+    '巴西': [-47.3,-15.5],
+    '西班牙': [-2.06, 41.18],
+    '法国': [3.2, 48.51],
+    '德国': [10.2, 52.31],
+    '英国': [0, 55.04],
+    '意大利': [11.15, 45.28],
+    '韩国': [126.38, 37.3],
+};
+//value  可控制光点大小
+var BJData = [
+    [{name:'中国'}, {name:'日本',value:60}],
+    [{name:'中国'}, {name:'印度',value:60}],
+    [{name:'中国'}, {name:'澳大利亚',value:60}],
+    [{name:'中国'}, {name:'马来西亚',value:60}],
+    [{name:'中国'}, {name:'俄罗斯',value:60}],
+    [{name:'中国'}, {name:'美国',value:60}],
+    [{name:'中国'}, {name:'墨西哥',value:60}],
+    [{name:'中国'}, {name:'巴西',value:60}],
+    [{name:'中国'}, {name:'西班牙',value:60}],
+    [{name:'中国'}, {name:'法国',value:60}],
+    [{name:'中国'}, {name:'德国',value:60}],
+    [{name:'中国'}, {name:'英国',value:60}],
+    [{name:'中国'}, {name:'意大利',value:60}],
+    [{name:'中国'}, {name:'中国',value:60}],
+    [{name:'中国'}, {name:'韩国',value:60}],
+];
+var convertData = function (data) {
+    var res = [];
+    for (var i = 0; i < data.length; i++) {
+        var dataItem = data[i];
+        var fromCoord = geoCoordMap[dataItem[0].name];
+        var toCoord = geoCoordMap[dataItem[1].name];
+        if (fromCoord && toCoord) {
+            res.push({
+                fromName: dataItem[0].name,
+                toName: dataItem[1].name,
+                coords: [fromCoord, toCoord]
+            });
+        }
+    }
+    return res;
+};
+var color = ['#37c0f8', '#ffa022', '#46bee9'];
+var series = [];
+[['中国', BJData]].forEach(function (item, i) {
+    series.push({
+        
+        name: '贸易' + ' Top15',
+        type: 'effectScatter',
+        coordinateSystem: 'geo',
+        zlevel: 2,
+        rippleEffect: {
+            brushType: 'stroke'
+        },
+        label: {
+            //地名
+            normal: {
+                show: false,
+                position: 'right',
+                formatter: '{b}',
+                 shadowBlur: 2,
+                 shadowColor: 'rgba(255, 255, 255, 0.8)',
+            }
+        },
+        symbolSize: function (val) {
+            return val[2] / 8;
+        },
+        itemStyle: {
+            normal: {
+                color: color[0],
+                shadowBlur: 10,
+                 shadowColor: 'rgba(255, 255, 255, 0.8)',
+            }
+        },
+        data: item[1].map(function (dataItem) {
+            return {
+                name: dataItem[1].name,
+                value: geoCoordMap[dataItem[1].name].concat([dataItem[1].value])
+            };
+        })
+    });
+});
+option = {
+    backgroundColor: '',
+    title : {
+    	//标题
+        text: '2017年6月28日网络热销产品走势图',
+        left: 'center',top:'15%',
+        textStyle : {
+            color: '#fff',fontSize:'30',fontFamily:'宋体'
+        }
+    },
+    tooltip : {
+        trigger: 'item'
+    },
+    //地图样式
+    geo: {
+        map: 'world',top:'35%',
+        label: {
+            emphasis: {
+                show:false
+            }
+        },
+        //地图可否拖动
+        roam: false,
+        itemStyle: {
+            normal: {
+                //地图颜色
+                areaColor: '#7e93a4',
+                borderColor: '#0f345a'
+            },
+            emphasis: {
+                //hover时颜色
+                areaColor: '#0f345a'
+            }
+        }
+    },
+    series: series
+};
 		mapChart.setOption(option);
 
 		var mapzhexian1 = echarts.init(document.querySelector('.world-he1'));
@@ -392,7 +420,7 @@
 			series: [{
 				name: '美洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -407,8 +435,8 @@
 							offset: 0.8,
 							color: 'rgba(0, 0, 0, 0)'
 						}], false),
-						shadowColor: 'rgba(0, 0, 0, 0.1)',
-						shadowBlur: 10
+//						shadowColor: 'rgba(0, 0, 0, 0.1)',
+//						shadowBlur: 10
 					}
 				},
 				itemStyle: {
@@ -420,7 +448,7 @@
 			}, {
 				name: '非洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -448,7 +476,7 @@
 			}, {
 				name: '大洋洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -476,7 +504,7 @@
 			}, {
 				name: '亚洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -504,7 +532,7 @@
 			}, {
 				name: '欧洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -532,7 +560,6 @@
 			}, ]
 		};
 		mapzhexian1.setOption(option);
-		
 		
 		var mapdivhe1 = echarts.init(document.querySelector('.div-he1'));
 		option = {
@@ -636,7 +663,7 @@
 			series: [{
 				name: '美洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -664,7 +691,7 @@
 			}, {
 				name: '非洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -692,7 +719,7 @@
 			}, {
 				name: '大洋洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -720,7 +747,7 @@
 			}, {
 				name: '亚洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -748,7 +775,7 @@
 			}, {
 				name: '欧洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -776,7 +803,6 @@
 			}, ]
 		};
 		mapdivhe1.setOption(option);
-
 
 		var mapzhexian2 = echarts.init(document.querySelector('.world-he2'));
 		option = {
@@ -873,7 +899,7 @@
 			series: [{
 				name: '美洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -901,7 +927,7 @@
 			}, {
 				name: '非洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -929,7 +955,7 @@
 			}, {
 				name: '大洋洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -957,7 +983,7 @@
 			}, {
 				name: '亚洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -985,7 +1011,7 @@
 			}, {
 				name: '欧洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -1112,7 +1138,7 @@
 			series: [{
 				name: '美洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -1140,7 +1166,7 @@
 			}, {
 				name: '非洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -1168,7 +1194,7 @@
 			}, {
 				name: '大洋洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -1196,7 +1222,7 @@
 			}, {
 				name: '亚洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -1224,7 +1250,7 @@
 			}, {
 				name: '欧洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -1386,7 +1412,7 @@
 			series: [{
 				name: '美洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -1414,7 +1440,7 @@
 			}, {
 				name: '非洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -1442,7 +1468,7 @@
 			}, {
 				name: '大洋洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -1470,7 +1496,7 @@
 			}, {
 				name: '亚洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -1498,7 +1524,7 @@
 			}, {
 				name: '欧洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -1660,7 +1686,7 @@
 			series: [{
 				name: '美洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -1688,7 +1714,7 @@
 			}, {
 				name: '非洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -1716,7 +1742,7 @@
 			}, {
 				name: '大洋洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -1744,7 +1770,7 @@
 			}, {
 				name: '亚洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -1772,7 +1798,7 @@
 			}, {
 				name: '欧洲',
 				type: 'line',
-				smooth: true,
+				symbol:'none',
 				lineStyle: {
 					normal: {
 						width: 1
@@ -1846,7 +1872,7 @@
 						normal: {
 							formatter: '{b}预期',textStyle: {
 					fontSize: 8,
-					fontWeight: 'normal',fontFamily: '宋体',
+					fontWeight: 'normal',fontFamily: '宋体',color:'white'
 				}
 						},
 						emphasis: {
@@ -1870,23 +1896,34 @@
 					},
 					data: [{
 							value: 60,
-							name: '邮件'
-						},
-						{
-							value: 40,
-							name: '访问'
-						},
-						{
-							value: 20,
-							name: '展现'
+							name: '邮件',     itemStyle:{
+                  normal:{color:'#a89028'}
+              }
+              
 						},
 						{
 							value: 80,
-							name: '咨询'
+							name: '访问', itemStyle:{
+                  normal:{color:'#aa752e'}
+              }
 						},
 						{
 							value: 100,
-							name: '成交'
+							name: '展现',itemStyle:{
+                  normal:{color:'#18695a'}
+              }
+						},
+						{
+							value: 40,
+							name: '咨询',itemStyle:{
+                  normal:{color:'#5a7041'}
+              }
+						},
+						{
+							value: 20,
+							name: '成交',itemStyle:{
+                  normal:{color:'#b62c30'}
+              }
 						}
 					]
 				},
@@ -1923,23 +1960,33 @@
 					},
 					data: [{
 							value: 30,
-							name: '展现'
+							name: '邮件',itemStyle:{
+                  normal:{color:'#b5a617'}
+              }
 						},
 						{
 							value: 10,
-							name: '访问'
+							name: '咨询',itemStyle:{
+                  normal:{color:'#5f7439'}
+              }
 						},
 						{
 							value: 5,
-							name: '邮件'
+							name: '成交',itemStyle:{
+                  normal:{color:'#c62022'}
+              }
 						},
 						{
 							value: 50,
-							name: '咨询'
+							name: '访问',itemStyle:{
+                  normal:{color:'#cf6b16'}
+              }
 						},
 						{
 							value: 80,
-							name: '成交'
+							name: '展现',itemStyle:{
+                  normal:{color:'#0c6944'}
+              }
 						}
 					]
 				}
@@ -1991,7 +2038,7 @@
 						normal: {
 							formatter: '{b}预期',textStyle: {
 					fontSize: 20,
-					fontWeight: 'normal',fontFamily: '宋体',
+					fontWeight: 'normal',fontFamily: '宋体',color:'white'
 				}
 						},
 						emphasis: {
@@ -2011,23 +2058,34 @@
 					},
 					data: [{
 							value: 60,
-							name: '邮件'
-						},
-						{
-							value: 40,
-							name: '访问'
-						},
-						{
-							value: 20,
-							name: '展现'
+							name: '邮件',     itemStyle:{
+                  normal:{color:'#a89028'}
+              }
+              
 						},
 						{
 							value: 80,
-							name: '咨询'
+							name: '访问', itemStyle:{
+                  normal:{color:'#aa752e'}
+              }
 						},
 						{
 							value: 100,
-							name: '成交'
+							name: '展现',itemStyle:{
+                  normal:{color:'#18695a'}
+              }
+						},
+						{
+							value: 40,
+							name: '咨询',itemStyle:{
+                  normal:{color:'#5a7041'}
+              }
+						},
+						{
+							value: 20,
+							name: '成交',itemStyle:{
+                  normal:{color:'#b62c30'}
+              }
 						}
 					]
 				},
@@ -2064,27 +2122,38 @@
 					},
 					data: [{
 							value: 30,
-							name: '展现'
+							name: '邮件',itemStyle:{
+                  normal:{color:'#b5a617'}
+              }
 						},
 						{
 							value: 10,
-							name: '访问'
+							name: '咨询',itemStyle:{
+                  normal:{color:'#5f7439'}
+              }
 						},
 						{
 							value: 5,
-							name: '邮件'
+							name: '成交',itemStyle:{
+                  normal:{color:'#c62022'}
+              }
 						},
 						{
 							value: 50,
-							name: '咨询'
+							name: '访问',itemStyle:{
+                  normal:{color:'#cf6b16'}
+              }
 						},
 						{
 							value: 80,
-							name: '成交'
+							name: '展现',itemStyle:{
+                  normal:{color:'#0c6944'}
+              }
 						}
 					]
 				}
-			]
+			],
+			
 		};
 		maploudou1.setOption(option);
 		
@@ -2095,13 +2164,11 @@
 		$(".fangxiao1").click(function(){
 			$(".ling1").css('display','none')
 			$(".gai").css("display","none")
-			
 		})
 		
 		$(".fangda2").click(function(){
 			$(".ling2").css('display','block')
 			$(".gai").css("display","block")
-			
 		})
 		$(".fangxiao2").click(function(){
 			$(".gai").css("display","none")
